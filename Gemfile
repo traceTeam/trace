@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'omniauth-facebook'
 gem 'omniauth-kakao', :git => 'https://github.com/hcn1519/omniauth-kakao'
 gem 'devise'
+gem 'rails_db'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'

@@ -108,8 +108,7 @@ rails generate devise user
        route  devise_for :users
 ```
 
-
-
+rails g devise:controllers users
 
 
 ### Reference

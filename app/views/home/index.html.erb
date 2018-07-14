@@ -1386,7 +1386,9 @@
 										    <div class="form-group">
 										      <%= f.check_box :remember_me %>
 										      <%= f.label :remember_me, style: "display: inline-block !important;" %>
+										      <span><a href="#">Lost your password?</a></span>
 										    </div>
+										    
 										  <% end -%>
 										    <%= f.submit "Log in", class: "tg-btn tg-btn-lg" %>	
 										</fieldset>
@@ -1402,12 +1404,12 @@
 								  <%= devise_error_messages! %>
 								  <fieldset>
 									  <div class="form-group">
-									    <label>Name or Email <sup>*</sup></label>
+									    <label>Email <sup>*</sup></label>
 									    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
 									  </div>
 
 									  <div class="form-group">
-									    <%= f.label :"Password *" %>
+									    <label>Password <sup>*</sup></label>  <!--# <%= f.label :"Password *" %>  -->
 									    <% if @minimum_password_length %>
 									    <em>(<%= @minimum_password_length %> characters minimum)</em>
 									    <% end %>
@@ -1415,7 +1417,7 @@
 									  </div>
 									
 									  <div class="form-group">
-									    <%= f.label :password_confirmation %>
+										<label>Password Confirmation <sup>*</sup></label>  <!--# <%= f.label :password_confirmation %>  -->
 									    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
 									  </div>
 									    <%= f.submit "Sign up", class: "tg-btn tg-btn-lg" %>

@@ -381,10 +381,12 @@ jQuery(document).on('ready', function() {
 			jQuery(this).removeClass('open');
 		}
 	});
-	jQuery('form').submit(function(event) {
-		event.preventDefault();
-		return false;
-	});
+	
+	//jQuery('form').submit(function(event) {
+	//	event.preventDefault();
+	//	return false;
+	//});
+	
 	jQuery('.tg-search button.close').on('click', function(){
 		jQuery(this).parents('.tg-search').removeClass('open');
 	});
@@ -396,11 +398,13 @@ jQuery(document).on('ready', function() {
 		jQuery('#tg-loginsingup').addClass('open');
 		jQuery('body').addClass('tg-hidescroll');
 	});
+
 	jQuery('#tg-loginsingup, #tg-loginsingup button.close').on('click keyup', function(event) {
 		jQuery('body').removeClass('tg-hidescroll');
 		if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
 			jQuery(this).removeClass('open');
 		}
+
 	});
 	/* -------------------------------------
 			PRETTY PHOTO GALLERY

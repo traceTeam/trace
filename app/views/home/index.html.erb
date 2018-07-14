@@ -1,9 +1,4 @@
 
-<!--[if lt IE 7]>		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>			<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>			<html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->	<html class="no-js" lang="zxx"> <!--<![endif]-->
-
 	<!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -233,19 +228,24 @@
 								<li><a href="javascript:void(0);"><i class="icon-twitter-social-outlined-logo"></i></a></li>
 							</ul>
 							<div class="tg-userbox">
+								
+								<% unless user_signed_in? %>
 								<a id="tg-btnsignin" class="tg-btn" href="#tg-loginsingup"><span>sign in</span></a>
-								<div class="dropdown tg-dropdown">
+								<% else %>
+								<div class="dropdown">  <!--tg-dropdown-->
 									<button class="tg-btndropdown" id="tg-dropdowndashboard" type="button" data-toggle="dropdown">
 										<img src="<%=asset_path 'author/img-01.jpg' %>" alt="image description">
-										<span>john smith</span>
+										<span><%=current_user.email%></span>
 										<i class="fa fa-caret-down"></i>
 									</button>
 									<ul class="dropdown-menu tg-dropdownusermenu" aria-labelledby="tg-dropdowndashboard">
 										<li><a href="dashboard.html">Dashboard</a></li>
 										<li><a href="dashboard.html">Edit Profile</a></li>
-										<li><a href="javascript:void(0);">Sign Out</a></li>
+										<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
 									</ul>
 								</div>
+								<% end %>
+								
 							</div>
 						</div>
 						<nav id="tg-nav" class="tg-nav">
@@ -1347,7 +1347,7 @@
 	<!--************************************
 			Login Singup Start
 	*************************************-->
-	<div id="tg-loginsingup" class="tg-loginsingup" data-vide-options="position: 0% 50%">
+	<div id="tg-loginsingup" class="tg-loginsingup <%= "open" if flash[:modal] %>" data-vide-options="position: 0% 50%">
 		<div class="tg-contentarea tg-themescrollbar">
 			<div class="tg-scrollbar">
 				<button type="button" class="close">x</button>
@@ -1360,56 +1360,69 @@
 							<li><a href="#">My Wishlist</a></li>
 						</ul>
 					</nav>
+					
+					
 					<div class="tg-themetabs">
 						<ul class="tg-navtbs" role="tablist">
 							<li role="presentation" class="active"><a href="#home" data-toggle="tab">Already Registered</a></li>
 							<li role="presentation"><a href="#profile" data-toggle="tab">New to Travleu ?</a></li>
 						</ul>
+						
 						<div class="tg-tabcontent tab-content">
+							
 							<div role="tabpanel" class="tab-pane active fade in" id="home">
-								<form class="tg-formtheme tg-formlogin">
-									<fieldset>
-										<div class="form-group">
-											<label>Name or Email <sup>*</sup></label>
-											<input type="text" name="firstname" class="form-control" placeholder="">
-										</div>
-										<div class="form-group">
-											<label>Password <sup>*</sup></label>
-											<input type="password" name="password" class="form-control" placeholder="">
-										</div>
-										<div class="form-group">
-											<div class="tg-checkbox">
-												<input type="checkbox" name="remember" id="rememberpass">
-												<label for="rememberpass">Remember Me</label>
-											</div>
-											<span><a href="#">Lost your password?</a></span>
-										</div>
-										<button class="tg-btn tg-btn-lg"><span>update profile</span></button>
-									</fieldset>
-								</form>
+									<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "tg-formtheme tg-formlogin", id: "login_user" }) do |f| %>
+									  <fieldset>
+										  <div class="form-group">
+										    <label>Email <sup>*</sup></label>
+										    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "login_user_id"%>
+										  </div>
+										
+										  <div class="form-group">
+										    <label>Password <sup>*</sup></label>
+										    <%= f.password_field :password, autocomplete: "off", class: "form-control" , id: "login_user_password" %>
+										  </div>
+										  <% if devise_mapping.rememberable? -%>
+										    <div class="form-group">
+										      <%= f.check_box :remember_me %>
+										      <%= f.label :remember_me, style: "display: inline-block !important;" %>
+										    </div>
+										  <% end -%>
+										    <%= f.submit "Log in", class: "tg-btn tg-btn-lg" %>	
+										</fieldset>
+									<% end %>
 							</div>
+							
+							
+							
+							
 							<div role="tabpanel" class="tab-pane fade" id="profile">
-								<form class="tg-formtheme tg-formlogin">
-									<fieldset>
-										<div class="form-group">
-											<label>Name or Email <sup>*</sup></label>
-											<input type="text" name="firstname" class="form-control" placeholder="">
-										</div>
-										<div class="form-group">
-											<label>Password <sup>*</sup></label>
-											<input type="password" name="password" class="form-control" placeholder="">
-										</div>
-										<div class="form-group">
-											<div class="tg-checkbox">
-												<input type="checkbox" name="remember" id="remember">
-												<label for="remember">Remember Me</label>
-											</div>
-											<span><a href="#">Lost your password?</a></span>
-										</div>
-										<button class="tg-btn tg-btn-lg"><span>update profile</span></button>
-									</fieldset>
-								</form>
+								
+								<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "tg-formtheme tg-formlogin"}) do |f| %>
+								  <%= devise_error_messages! %>
+								  <fieldset>
+									  <div class="form-group">
+									    <label>Name or Email <sup>*</sup></label>
+									    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+									  </div>
+
+									  <div class="form-group">
+									    <%= f.label :"Password *" %>
+									    <% if @minimum_password_length %>
+									    <em>(<%= @minimum_password_length %> characters minimum)</em>
+									    <% end %>
+									    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+									  </div>
+									
+									  <div class="form-group">
+									    <%= f.label :password_confirmation %>
+									    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+									  </div>
+									    <%= f.submit "Sign up", class: "tg-btn tg-btn-lg" %>
+									   </fieldset>
+								<% end %>
 							</div>
+							
 						</div>
 					</div>
 					<div class="tg-shareor"><span>or</span></div>
@@ -1443,3 +1456,31 @@
 	<script src="js/parallax.js"></script>
 	<script src="js/gmap3.js"></script>
 	<script src="js/main.js"></script> -->
+	
+<script>
+// $('input[value="Sign up"]').on('click', function(e) {
+// 	var email = $("#user_email").val();
+// 	$.ajax({
+// 		url: '/home/test',
+// 		data: {email: email},
+// 		dataType: 'json',
+// 		type: "POST"
+// 		});
+// 	return false;
+// });
+
+$("#user_password").on("focusout", function(e){
+	var password = $("#user_password").val();
+	var password_alarm = $("#password_alarm");
+	if (password.length < 6 && password_alarm.length == 0) {
+		$("label[for='user_Password *'").append("<span id='password_alarm'>비밀번호는 6자 이상이어야 합니다.</span>");
+		return false;
+	}
+	else if (password.length >= 6){
+		$("#password_alarm").remove();
+		return false;
+	}
+});
+
+
+</script>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   root 'home#index'
 
   get 'posts/index'
@@ -10,11 +13,11 @@ Rails.application.routes.draw do
   get 'posts/edit'
   get 'posts/update'
   get 'posts/destroy'
-
+  
   get 'users/sign_up'     #회원가입
   get 'users/sign_in'     #로그인
   delete 'users/sign_out' #로그아웃
-
+  post '/home/test'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

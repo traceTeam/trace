@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require vendor/jquery-library
 //= require vendor/modernizr-2.8.3-respond-1.4.2.min.js
 //= require vendor/bootstrap.min
 //= require bootstrap-select.min

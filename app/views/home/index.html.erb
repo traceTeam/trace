@@ -1409,7 +1409,7 @@
 									  </div>
 
 									  <div class="form-group">
-									    <%= f.label :"Password *" %>  <!-- #<label>Password <sup>*</sup></label> -->
+									    <%= f.label :"Password *" %>  <!--# <label>Password <sup>*</sup></label>  <= 이렇게 하면 글자수 검증 안됨 -->
 									    <% if @minimum_password_length %>
 									    <em>(<%= @minimum_password_length %> characters minimum)</em>
 									    <% end %>
@@ -1417,7 +1417,7 @@
 									  </div>
 									
 									  <div class="form-group">
-										<%= f.label :password_confirmation %>  <!-- 얘는 위에 그냥 라벨처럼 하면 안됨~! -->
+										<label>Password Confirmation <sup>*</sup></label>  <!--#  <%= f.label :password_confirmation %> -->   
 									    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
 									  </div>
 									    <%= f.submit "Sign up", class: "tg-btn tg-btn-lg" %>

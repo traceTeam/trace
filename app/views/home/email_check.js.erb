@@ -1,0 +1,14 @@
+<% if @email_val.length == 0 %>
+    return false;
+<% end %>
+
+<% if @email == false %>
+    $('#email_confirm').text("이미 사용중인 이메일입니다."); 
+<% else %>
+    $('#email_confirm').text("사용가능한 이메일입니다.");
+<% end %>
+
+
+<!--<$('#user_email').val() == ""-->
+<!--<%# else if %> $('#user_email').val() <%# == ""%>     -->
+<!--$('#email_confirm').text("공란입니다.");-->

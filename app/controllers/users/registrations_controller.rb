@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :redirect_path, only: :create
+  # before_action :redirect_path, only: :create
   # GET /resource/sign_up
   # def new
   #   super
@@ -62,8 +62,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   private 
   
-  def redirect_path
-    flash[:modal] = "hi"
-    redirect_to :back if User.find_by(email: params[:user][:email])
-  end
+  # def redirect_path
+  #   #flash[:modal] = "hi"
+  #   redirect_to :back if User.find_by(email: params[:user][:email])
+  # end
 end

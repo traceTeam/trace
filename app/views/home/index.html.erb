@@ -1347,6 +1347,7 @@
 	<!--************************************
 			Login Singup Start
 	*************************************-->
+	<!--<div id="tg-loginsingup" class="tg-loginsingup <%= "open" if flash[:modal] %>" data-vide-options="position: 0% 50%">-->
 	<div id="tg-loginsingup" class="tg-loginsingup <%= "open" if flash[:modal] %>" data-vide-options="position: 0% 50%">
 		<div class="tg-contentarea tg-themescrollbar">
 			<div class="tg-scrollbar">
@@ -1371,6 +1372,7 @@
 						<div class="tg-tabcontent tab-content">
 							
 							<div role="tabpanel" class="tab-pane active fade in" id="home">
+									<!-- form_for 에서 resource는 user를 가리킴 -->
 									<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "tg-formtheme tg-formlogin", id: "login_user" }) do |f| %>
 									  <fieldset>
 										  <div class="form-group">
@@ -1390,7 +1392,7 @@
 										    </div>
 										    
 										  <% end -%>
-										    <%= f.submit "Log in", class: "tg-btn tg-btn-lg" %>	
+										    <%= f.submit "Log in", class: "tg-btn tg-btn-lg login", html: {id: "login" } %>	
 										</fieldset>
 									<% end %>
 							</div>
@@ -1400,27 +1402,35 @@
 							
 							<div role="tabpanel" class="tab-pane fade" id="profile">
 								
-								<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "tg-formtheme tg-formlogin"}) do |f| %>
+								<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "tg-formtheme tg-formlogin"}, id: "signupForm") do |f| %>
 								  <%= devise_error_messages! %>
 								  <fieldset>
 									  <div class="form-group">
-									    <label>Email <sup>*</sup></label>
+									    <label>Email <sup>*</sup>
+									    <sapn id = "email_confirm" ></sapn>
+									    </label>
 									    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+									    
 									  </div>
 
 									  <div class="form-group">
-									    <%= f.label :"Password *" %>  <!--# <label>Password <sup>*</sup></label>  <= 이렇게 하면 글자수 검증 안됨 -->
+									    <%= f.label :"Password " do %>  <!--# <label>Password <sup>*</sup></label>  <= 이렇게 하면 글자수 검증 안됨 -->
+									    	<%= "Password <sup>*</sup>".html_safe %>
+									    <% end %>
+									    <span id = "password_confirm" ></span>
 									    <% if @minimum_password_length %>
 									    <em>(<%= @minimum_password_length %> characters minimum)</em>
 									    <% end %>
+									    
 									    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
 									  </div>
 									
 									  <div class="form-group">
-										<label>Password Confirmation <sup>*</sup></label>  <!--#  <%= f.label :password_confirmation %> -->   
-									    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+										<label id="password_lb2">Password Confirmation <sup>*</sup></label>  <!--#  <%# f.label :password_confirmation %> -->   
+									    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", id: "re_password" %>
+									    <sapn id = "re_password_confirm" ></sapn>
 									  </div>
-									    <%= f.submit "Sign up", class: "tg-btn tg-btn-lg" %>
+									    <%= f.submit "Sign up", class: "tg-btn tg-btn-lg", id: "signup" %>
 									   </fieldset>
 								<% end %>
 							</div>
@@ -1471,11 +1481,16 @@
 // 	return false;
 // });
 
+// #은 j쿼리, 엘리멘트.get.id 이런거 너무 기니까 줄인거.
 $("#user_password").on("focusout", function(e){
 	var password = $("#user_password").val();
 	var password_alarm = $("#password_alarm");
-	if (password.length < 6 && password_alarm.length == 0) {
-		$("label[for='user_Password *'").append("<span id='password_alarm'>비밀번호는 6자 이상이어야 합니다.</span>");
+	//alert (password_alarm);
+	if (password.length < 6 ) {  //&& password_alarm.length == 0
+		//$("#password_alarm").text("ddddaaa")
+		//$("#password_confirm").text("비밀번호는 6자 이상이어야 합니다.");
+		$("#password_alarm").remove();
+		$("label[for='user_Password '").append("<span id='password_alarm'>비밀번호는 6자 이상</span>");
 		return false;
 	}
 	else if (password.length >= 6){
@@ -1484,5 +1499,63 @@ $("#user_password").on("focusout", function(e){
 	}
 });
 
+$("#re_password").on("focusout", function(e){
+	if ( $('#user_password').val() != $('#re_password').val() ){
+		//$("label[for='Password Confirmation'").append("<span id='re_password_alarm'>패스워드가 불일치</span>");
+		$("#re_password_alarm").remove();
+		$("#password_lb2").append("<span id='re_password_alarm'>패스워드가 불일치</span>");
+		return false;
+	}
+	else{
+		$("#re_password_alarm").remove(); //alert ("패스워드 다름");
+		return false;
+	}
+});
+
+
+
+$("#user_email").on("focusout", function(e){
+	var email = $('#user_email').val()
+	
+	if ( $('#user_email').val().length == 0 ){
+		$('#email_confirm').text("이메일을 입력해주세요.");
+	}
+	
+	$.ajax({
+	   // User.find_by(email: "").nil?  =>값이 있으면 펄스, 값이 없으면 트루
+	  url: '/home/email_check',
+      type: "POST",
+      data: {email: $('#user_email').val()},  //이메일 값을 던짐
+      dataType: 'script',
+	});
+	
+});
+
+
+$('input[value="Sign up"]').on('click',function(e){   	//$('#signup').text
+	if ( $('#email_confirm').text().length == 15 ){		//가입된 이메일임
+	 	e.preventDefault();   							//submit 이벤트 취소 
+	 	$('#email_confirm').text("이미 사용중인 이메일입니다."); 
+	}
+	
+	if ( $('#user_password').val().length < 6 ){
+		e.preventDefault();   							//submit 이벤트 취소 
+		$("#password_alarm").remove();
+		$("label[for='user_Password '").append("<span id='password_alarm'>비밀번호는 6자 이상</span>");
+	}
+	
+	if ( $('#user_password').val() != $('#re_password').val() ){
+		e.preventDefault();   							//submit 이벤트 취소 
+		$("#re_password_alarm").remove();
+		$("#password_lb2").append("<span id='re_password_alarm'>패스워드 불일치</span>");
+	}
+	
+	if ($('#user_email').val().length==0){
+		e.preventDefault();   							//submit 이벤트 취소 
+		$('#email_confirm').text("이메일을 입력해주세요.클릭");
+	}
+});
+    
 
 </script>
+

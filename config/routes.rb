@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-
+  
+  
+  resources :repositories
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
   root 'home#index'
-
+  get '/repositories' => 'repositories#index'
   get 'posts/index'
   get 'posts/new'
   get 'posts/create'

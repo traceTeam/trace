@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @repository.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @repository.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @repository.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_repository_path(@repository) %> |
+<%= link_to 'Back', repositories_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @trip.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @trip.content %>
+</p>
+
+<p>
+  <strong>Repository:</strong>
+  <%= @trip.repository_id %>
+</p>
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>

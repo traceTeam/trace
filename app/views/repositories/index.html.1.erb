@@ -6,25 +6,14 @@
       float: left;
       background: #FFD700;
   }
-  
-  #cen {
-      width: 0.1%;
-      height: 100%;
-      float: left;
-      background: #000000;
-  }
 
   #right {
-      width: 83%;
+      width: 85%;
       height: 100%;
       float: left;
       background: #FFA500;
   }
-  
-  .btn {
-    cursor:pointer;
-  }
-  
+
 </style>
 
 <p id="notice"><%= notice %></p>
@@ -33,19 +22,14 @@
 <a href="/users/sign_out" data-method="delete">로그아웃</a>
 
 
-<h1>My Repositories</h1>
+<h1>Listing Repositories</h1>
 
 
 <body>
 
 
-
   <div style="100%">
-    <div id="left">
-      <%= link_to '[ New Repository] ', new_repository_path %><br>
-        <img src="<%=asset_path 'Repository/button.png' %>" alt="" onclick="clickBtn();" />
-      <%= link_to '[ New Plans ]', new_trip_path %></div>
-    <div id="cen"> &nbsp</div>
+    <div id="left">하하</div>
     <div id="right">
         <table>
           <thead>
@@ -75,6 +59,6 @@
   <div>    
 
     
-
+<%= link_to 'New Repository', new_repository_path %>
 
 </body>

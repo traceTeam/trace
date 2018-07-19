@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  resources :trips
   resources :repositories
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   }
   root 'home#index'
   get '/repositories' => 'repositories#index'
+  get '/tripplans' => 'tripplans#index'
   get 'posts/index'
   get 'posts/new'
   get 'posts/create'

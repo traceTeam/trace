@@ -110,12 +110,26 @@ rails generate devise user
 
 rails g devise:controllers users
  
+### 게시판 글 작성 tinymce-r 추가
+
+
+
 
 ### Repository 구현 - 스캐폴딩으로 손쉽게 만들자
 rails g scaffold repository title:string content:text user_id:integer
+rake db:migrate
 route 추가 
 get '/repositories' => 'get#index'
  repository controller에 index 수정 
+
+
+### TripPlan 구현 - 스캐폴딩으로 손쉽게 만들자
+rails g scaffold tripplan title:string content:text repository_id:integer    
+rake db:migrate
+route 추가 
+get '/tripplans' => 'tripplans#index'
+
+
 
 ### Reference
 

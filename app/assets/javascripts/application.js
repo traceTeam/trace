@@ -27,3 +27,4 @@
 //= require parallax
 //= require gmap3
 //= require main
+//= require tinymce-jquery

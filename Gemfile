@@ -13,6 +13,10 @@ gem 'tinymce-rails-langs'
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 
 
+# 이미지 업로드하기
+gem 'carrierwave'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use mysql as the database for Active Record

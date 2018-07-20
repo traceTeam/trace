@@ -123,13 +123,18 @@ get '/repositories' => 'get#index'
  repository controller에 index 수정 
 
 
-### TripPlan 구현 - 스캐폴딩으로 손쉽게 만들자
+### Trip 구현 - 스캐폴딩으로 손쉽게 만들자
 rails g scaffold tripplan title:string content:text repository_id:integer    
 rake db:migrate
 route 추가 
 get '/tripplans' => 'tripplans#index'
 
 
+### Trip - 이미지 업로드 
+gem 'carrierwave'
+bundle install
+rails g uploader Img
+rails g migration AddImgToRepository img:string
 
 ### Reference
 

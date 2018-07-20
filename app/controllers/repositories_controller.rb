@@ -2,6 +2,10 @@ class RepositoriesController < ApplicationController
   before_action :set_repository, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! #로그인해야 접근 가능   , only:[:index, :show, :edit, :update, :destroy] 
 
+
+  def text
+  end
+
   # GET /repositories
   # GET /repositories.json
   def index
@@ -40,7 +44,7 @@ class RepositoriesController < ApplicationController
     
     
     #Repository.create(title: params[:title],content: params[:content],user_id: current_user.id)
-    Repository.create(title: params[:repository][:title], content: params[:repository][:content], user_id: current_user.id)
+    Repository.create(title: params[:repository][:title], content: params[:repository][:content], user_id: current_user.id, img: params[:repository][:img])
     redirect_to '/'
     
   end
@@ -77,6 +81,7 @@ class RepositoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def repository_params
-      params.require(:repository).permit(:title, :content, :user_id)
+      params.require(:repository).permit(:title, :content, :user_id, :img)
     end
+    
 end

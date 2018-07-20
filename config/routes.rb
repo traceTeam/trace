@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   }
   root 'home#index'
   get '/repositories' => 'repositories#index'
-  get '/tripplans' => 'tripplans#index'
+  get '/repository' => 'home#test2'
   get 'posts/index'
   get 'posts/new'
   get 'posts/create'

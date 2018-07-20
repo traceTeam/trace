@@ -1,4 +1,4 @@
-<%= form_for(@repository) do |f| %>
+<%= form_for @repository, html: { multipart: true } do |f| %>
   <% if @repository.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@repository.errors.count, "error") %> prohibited this repository from being saved:</h2>
@@ -15,10 +15,13 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+  
   <div class="field">
     <%= f.label :content %><br>
     <%= f.text_area :content %>
   </div>
+  
+  <%= f.file_field :img %>
   <!--<div class="field">-->
   <!--  <%#= f.label :user_id %><br>-->
   <!--  <%#= f.number_field :user_id %>-->

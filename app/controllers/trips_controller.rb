@@ -4,7 +4,8 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    @trips = Trip.all
+    #@trips = Trip.all
+    @trips = Trip.where(repository_id: params[:id])
   end
 
   # GET /trips/1

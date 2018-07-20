@@ -4,6 +4,10 @@ def index
     #@user = User.new
 end
 
+def test2
+end
+
+
 def test 
     alert("Ddd");
     email = params[:email]

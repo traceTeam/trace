@@ -1,3 +1,38 @@
 // Place all the styles related to the repositories controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+  #left {
+      width: 15%;
+      height: 100%;
+      float: left;
+      /*background: #FFD700;*/
+  }
+  
+  #cen {
+      width: 0.1%;
+      height: 100%;
+      float: left;
+      background: #000000;
+  }
+
+  #right {
+      width: 83%;
+      height: 100%;
+      float: left;
+      /*background: #FFA500;*/
+  }
+  
+  .btn {
+    cursor:pointer;
+  }
+  
+  table {
+    width: 100%;
+    border: 1px solid #444444;
+  }
+  
+  /*td {*/
+  /*  border: 10px solid #444444;*/
+  /*}*/
+  

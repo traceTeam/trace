@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require vendor/modernizr-2.8.3-respond-1.4.2.min.js
 //= require vendor/bootstrap.min
 //= require bootstrap-select.min
@@ -28,3 +27,7 @@
 //= require gmap3
 //= require main
 //= require tinymce-jquery
+
+$(window).on('load', function() {
+	$(".loader").fadeOut(800);
+});

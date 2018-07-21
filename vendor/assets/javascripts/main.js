@@ -432,6 +432,6 @@ jQuery(document).on('ready', function() {
 /* -------------------------------------
 			LOADER
 -------------------------------------- */
-jQuery(window).on('load', function() {
-	jQuery(".loader").fadeOut(800);
+$(window).on('load', function() {
+	$(".loader").fadeOut(800);
 });

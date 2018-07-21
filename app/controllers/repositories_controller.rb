@@ -19,7 +19,7 @@ class RepositoriesController < ApplicationController
 
   # GET /repositories/new
   def new
-  #  @repository = Repository.new
+    @repository = Repository.new
   end
 
   # GET /repositories/1/edit

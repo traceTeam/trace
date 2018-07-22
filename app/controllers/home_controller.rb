@@ -8,6 +8,12 @@ def test2
 end
 
 
+def profile
+    respond_to do |format|
+      format.html {render 'profile'} 
+    end
+end
+
 def test 
     alert("Ddd");
     email = params[:email]

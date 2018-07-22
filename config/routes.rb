@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root 'home#index'
+  get '/home/profile' => 'home#profile'
   get '/repositories' => 'repositories#index'
+  get '/trips' => 'trips#all'
   get '/repository' => 'home#test2'
   get 'posts/index'
   get 'posts/new'

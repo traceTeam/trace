@@ -21,6 +21,7 @@
     
     <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
     
+    
 </head>
 <body>
 
@@ -261,10 +262,10 @@
 								<!--<li><a href="javascript:void(0);"><i class="far fa-save"></i></a></li>-->
 								<li><a href="/trips"><i class="fas fa-street-view"></i></a></li>
 							</ul>
+							
 							<div class="tg-userbox">
-								
-								<% unless user_signed_in? %>
-								<a id="tg-btnsignin" class="tg-btn" href="#tg-loginsingup"><span>sign in</span></a>
+								<% unless user_signed_in? %>	
+								<a id="tg-btnsignin" class="tg-btn" href="#tg-loginsingup"><span>sign in1</span></a>
 								<% else %>
 								<div class="dropdown">  <!--tg-dropdown-->
 									<button class="tg-btndropdown" id="tg-dropdowndashboard" type="button" data-toggle="dropdown">
@@ -273,14 +274,14 @@
 										<i class="fa fa-caret-down"></i>
 									</button>
 									<ul class="dropdown-menu tg-dropdownusermenu" aria-labelledby="tg-dropdowndashboard">
-										<li><a href="dashboard.html">Dashboard</a></li>
-										<li><a href="dashboard.html">Edit Profile</a></li>
+										<li><a href="/home/profile">Edit Profile</a></li>
 										<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete%></li>
 									</ul>
 								</div>
 								<% end %>
 								
 							</div>
+							
 						</div>
 						<nav id="tg-nav" class="tg-nav">
 							<div class="navbar-header">

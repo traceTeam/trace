@@ -1,45 +1,43 @@
+<!--<link rel="stylesheet" type="text/css" href="/repositories.scss" />-->
 
-<p id="notice"><%= notice %></p>
-
-<%= current_user.email %> 님 환영합니다. 
-<a href="/users/sign_out" data-method="delete">로그아웃</a>
-
-
-<h1>My Repositories</h1>
-
-
-  <div style="100%">
-    <div id="left">
+<table>
+  <tr style="vertical-align:top">
+    <td style="width:15%; border-right:1px solid gray; padding-right:12px; text-align:justify">
       
-      <a><img src=""></a>
+      <a href="/repositories/new"><img src="<%=asset_path 'Repository/button.png'%>"/><br></a>
+      <a href="/trips/new"><img src="<%=asset_path 'Repository/planButton.png'%>"/><br></a>
+      <a href="/trips"><img src="<%=asset_path 'Repository/Trip_Management.png'%>"/><br></a>
       
-        <a href="/repositories/new"><img src="<%=asset_path 'Repository/button.png'%>"/><br></a>
+      <% @repositories.each do |repository| %>
+        <a href="/trips?id=<%= repository.id %>">ㅁ <%= repository.title %> <br></a>
+      <% end %>
       
-    </div>
-    <div id="cen"> &nbsp</div>
-    <div id="right">
-      
-        <table>
+    </td>
+    <td style="padding-left:10px">
+
+          <table>
           <tbody>
             <% @repositories.each do |repository| %>
-              <tr>
-                
-                  <!--<td><%#= repository.user_id %></td>-->
                   
-                  <td>RepositoryID : <%= repository.id %><br>
+                  <!--<td><%#= repository.user_id %></td>-->
+                  <!--RepositoryID : <%#= repository.id %><br>-->
                       <%= repository.title %><br>
-                  <a href="/trips?id=<%= repository.id %>"><img src="<%= repository.img.url %>"/><br></a></td>
+                  <a href="/trips?id=<%= repository.id %>"><img src="<%= repository.img.url %>" width=300px height=300px/><br></a>
                 
-                
-                  <%= link_to 'Show', repository %>
-                  <%= link_to 'Edit', edit_repository_path(repository) %>
-                  <%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %>
-                
-              </tr>
+                  <%= link_to 'Show', repository %> &nbsp
+                  <%= link_to 'Edit', edit_repository_path(repository) %> &nbsp
+                  <%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %> 
+                  <br>
+                  
+              <hr>
             <% end %>
           </tbody>
         </table>
-        <br>
-    
-    </div>
-  </div>    
+
+    </td>
+  </tr>
+</table>
+
+
+
+

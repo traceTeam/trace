@@ -1,11 +1,16 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user! #로그인해야 접근 가능   , only:[:index, :show, :edit, :update, :destroy] 
 
   # GET /trips
   # GET /trips.json
   def index
     #@trips = Trip.all
     @trips = Trip.where(repository_id: params[:id])
+  end
+  
+  def all
+    @trip = Trip.all
   end
 
   # GET /trips/1

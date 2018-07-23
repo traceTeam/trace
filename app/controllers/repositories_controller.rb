@@ -9,7 +9,7 @@ class RepositoriesController < ApplicationController
   # GET /repositories
   # GET /repositories.json
   def index
-    @repositories = Repository.where(user_id: current_user)  # Repository.where(user_id: 1) 콘솔에서 확인
+    @repositories = Repository.where(user_id: current_user).order("created_at DESC")  # Repository.where(user_id: 1) 콘솔에서 확인
   end
 
   # GET /repositories/1

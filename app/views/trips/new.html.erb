@@ -1,5 +1,8 @@
 <h1>New Trip</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', trips_path %>
+<% if @repository.nil? %>
+<%= link_to 'Back', repositories_path %>
+<% else %>
+<%= link_to 'Back', repository_trips_path %>
+<% end %>

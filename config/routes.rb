@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
-  
-  
-  resources :trips
+
   resources :repositories
+  resources :trips
+  get '/repositories/:repository_id/trips' => 'trips#index'
+  get '/repositories/:repository_id/trips/new' => 'trips#new'
+
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
   root 'home#index'
+  # get '/trips/new' => 'trips#new'
   get '/home/profile' => 'home#profile'
-  get '/repositories' => 'repositories#index'
-  get '/trips' => 'trips#all'
+  # get '/repositories' => 'repositories#index'
+  
   get '/repository' => 'home#test2'
   get 'posts/index'
   get 'posts/new'

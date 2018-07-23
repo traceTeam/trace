@@ -1,42 +1,36 @@
 <!--<link rel="stylesheet" type="text/css" href="/repositories.scss" />-->
 
+
 <table>
   <tr style="vertical-align:top">
+    
     <td style="width:15%; border-right:1px solid gray; padding-right:12px; text-align:justify">
-      
       <a href="/repositories/new"><img src="<%=asset_path 'Repository/button.png'%>"/><br></a>
       <a href="/trips/new"><img src="<%=asset_path 'Repository/planButton.png'%>"/><br></a>
       <a href="/trips"><img src="<%=asset_path 'Repository/Trip_Management.png'%>"/><br></a>
-      
       <% @repositories.each do |repository| %>
         <a href="/trips?id=<%= repository.id %>">ㅁ <%= repository.title %> <br></a>
       <% end %>
-      
     </td>
+
     <td style="padding-left:10px">
-
-          <table>
-          <tbody>
+      
+      <div class="container">
+        <div class="row">
             <% @repositories.each do |repository| %>
-                  
-                  <!--<td><%#= repository.user_id %></td>-->
-                  <!--RepositoryID : <%#= repository.id %><br>-->
-                      <%= repository.title %><br>
-                  <a href="/trips?id=<%= repository.id %>"><img src="<%= repository.img.url %>" width=300px height=300px/><br></a>
-                
-                  <%= link_to 'Show', repository %> &nbsp
-                  <%= link_to 'Edit', edit_repository_path(repository) %> &nbsp
-                  <%= link_to 'Destroy', repository, method: :delete, data: { confirm: 'Are you sure?' } %> 
-                  <br>
-                  
-              <hr>
+              <div class="col-sm-4">
+                 <p><%= repository.title %></p>
+                 <a href="/repositories/<%= repository.id %>/trips"><img src="<%= repository.img.url %>" width=300px height=300px/><br></a>
+              </div>
             <% end %>
-          </tbody>
-        </table>
-
+          </div>
+      </div>
+      
     </td>
   </tr>
 </table>
+
+
 
 
 

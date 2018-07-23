@@ -5,14 +5,13 @@ class TripsController < ApplicationController
   # GET /trips
   # GET /trips.json
   def index
-    #@trips = Trip.all
-    @trips = Trip.where(repository_id: params[:id])
+    # @trips = Trip.all
+    if (params[:repository_id].nil?)  
+      @trips = current_user.trips
+    else
+      @trips = current_user.trips.where(repository_id: params[:repository_id]).order("created_at DESC")
+    end
   end
-  
-  def all
-    @trip = Trip.all
-  end
-
   # GET /trips/1
   # GET /trips/1.json
   def show
@@ -20,6 +19,8 @@ class TripsController < ApplicationController
 
   # GET /trips/new
   def new
+    # @repository = Repository.find(params[:repository_id]) 
+    # @repo_id = params[:repository_id]
     @trip = Trip.new
   end
 
@@ -30,7 +31,7 @@ class TripsController < ApplicationController
   # POST /trips
   # POST /trips.json
   def create
-    @trip = Trip.new(trip_params)
+    @trip = current_user.trips.new(trip_params)
 
     respond_to do |format|
       if @trip.save
@@ -62,7 +63,7 @@ class TripsController < ApplicationController
   def destroy
     @trip.destroy
     respond_to do |format|
-      format.html { redirect_to trips_url, notice: 'Trip was successfully destroyed.' }
+      format.html { redirect_to trips_path, notice: 'Trip was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +76,6 @@ class TripsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def trip_params
-      params.require(:trip).permit(:title, :content, :repository_id)
+      params.require(:trip).permit(:title, :content, :repository_id, :user_id)
     end
 end

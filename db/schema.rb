@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20180719193819) do
     t.string   "title",         limit: 255
     t.text     "content",       limit: 65535
     t.integer  "repository_id", limit: 4
+    t.integer  "user_id",       limit: 4
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

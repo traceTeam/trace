@@ -4,7 +4,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-kakao', :git => 'https://github.com/hcn1519/omniauth-kakao'
 gem 'devise'
 gem 'rails_db'
-
+gem "simple_calendar", "~> 2.0"
 
 
 #게시판

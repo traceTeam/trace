@@ -28,7 +28,7 @@ function showLeftInfo() {
   if(leftInfoChecker == 0){
     document.getElementById("leftInfo").style.width = lefInfoSizeChange;
     document.getElementById("kakaomap").style.width = lefInfoSizeBack;
-    document.getElementById("leftInfo").style.backgroundColor="red"; 
+    //document.getElementById("leftInfo").style.backgroundColor="rgb(255, 204, 204)"; 
     leftInfoChecker = 1;
   }else if(leftInfoChecker == 1){
     

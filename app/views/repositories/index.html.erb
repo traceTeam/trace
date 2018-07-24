@@ -8,8 +8,10 @@
       <a href="/repositories/new"><img src="<%=asset_path 'Repository/button.png'%>"/><br></a>
       <a href="/plan/new"><img src="<%=asset_path 'Repository/planButton.png'%>"/><br></a>
       <a href="/trips"><img src="<%=asset_path 'Repository/Trip_Management.png'%>"/><br></a>
+      <br>
+      <h2>[ Group ]</h2>
       <% @repositories.each do |repository| %>
-        <a href="/trips?id=<%= repository.id %>">ㅁ <%= repository.title %> <br></a>
+        <h3><a href="/repositories/<%= repository.id %>/trips">ㅁ <%= repository.title %> <br></a></h3>
       <% end %>
     </td>
 

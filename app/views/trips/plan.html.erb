@@ -1,6 +1,23 @@
+<script>
+// #calendar { 
+//   height: 70%; 
+//   width: 70%; 
+// }
+</script>
   
   <div class="inbody" style="height:680px"  >
-    <div id="leftInfo" style="height:100%; width:0%; background-color : red;"></div>
+    <div id="leftInfo" style="height:100%; width:0%;">
+         <!--<a href="http://www.naver.com">네이버</a>-->
+         
+         <div id="calendar" style="font-size: 5px">
+         <%= month_calendar do |date| %>
+          <%= date.mday %>
+        <% end %>
+        </div>
+        [ 메모 ]<br>
+         <textarea name="content" cols="40"  rows="15"></textarea>
+        
+    </div>
     
     <div id="kakaomap" class="kakaomap">
       <div style="height:100%; width:100%;">

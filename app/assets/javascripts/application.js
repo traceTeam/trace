@@ -27,7 +27,6 @@
 //= require gmap3
 //= require main
 //= require tinymce-jquery
-//= require googlemap
 //= require mapbutton
 
 $(window).on('load', function() {

@@ -6,7 +6,7 @@
     
     <td style="width:15%; border-right:1px solid gray; padding-right:12px; text-align:justify">
       <a href="/repositories/new"><img src="<%=asset_path 'Repository/button.png'%>"/><br></a>
-      <a href="/trips/new"><img src="<%=asset_path 'Repository/planButton.png'%>"/><br></a>
+      <a href="/plan/new"><img src="<%=asset_path 'Repository/planButton.png'%>"/><br></a>
       <a href="/trips"><img src="<%=asset_path 'Repository/Trip_Management.png'%>"/><br></a>
       <% @repositories.each do |repository| %>
         <a href="/trips?id=<%= repository.id %>">ㅁ <%= repository.title %> <br></a>

@@ -139,3 +139,24 @@ rails g migration AddImgToRepository img:string
 ### Reference
 
 - https://gorails.com/setup/ubuntu/16.04
+
+
+[ /asset/stylesheet/main.css.erb ] 
+/* =============================================
+			Theme Styling
+============================================= */
+.tg-wrapper {
+	height:13%;     <-- 100% 였는데 13%로 줄임
+	overflow-y: hidden;
+	position:relative;
+}
+
+
+[ /app/assets/stylesheets/amp.css ]
+html, body{
+    
+    /*background-color: #008080;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    margin : 0;
+}

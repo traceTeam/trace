@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get '/repositories/:repository_id/trips' => 'trips#index'
   get '/repositories/:repository_id/trips/new' => 'trips#new'
   
-  get '/maptest' => 'trips#test'
-
+  get '/plan/new' => 'trips#plan'
+  get '/users/sign_in' => 'home#index2'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

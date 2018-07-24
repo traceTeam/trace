@@ -422,12 +422,12 @@ jQuery(document).on('ready', function() {
 	/* ---------------------------------------
 			MOBILE MENU
 	--------------------------------------- */
-	jQuery("#menu").mmenu({
-		extensions: [
-			"border-full",
-			"pagedim-black",
-		],
-	});
+	// jQuery("#menu").mmenu({
+	// 	extensions: [
+	// 		"border-full",
+	// 		"pagedim-black",
+	// 	],
+	// });
 });
 /* -------------------------------------
 			LOADER

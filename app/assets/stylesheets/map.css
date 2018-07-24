@@ -1,0 +1,221 @@
+.menu-top{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.menu-bottom{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+
+
+.dropbtn {
+    background-color: #4d4d4d;
+    text-align : center;
+    width:41px;
+    opacity:0.9;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #737373;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width:41px;
+    background-color: #4d4d4d;
+    opacity:0.9;
+    text-align : center;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 0px;
+    display: block;
+}
+
+.dropdown-content img {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+html, body{
+    
+    /*background-color: #008080;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    margin : 0;
+}
+.menu{
+    background-color: #004d4d;
+    height : 45px;
+    width:100%;
+    display:flex;
+}
+.menu-left{/*
+    background-color: red;*/
+    padding : 0.5%;
+    width:33%;
+    height:100%;
+}
+.border{
+    /*background-color: white;*/
+    display:flex;
+    
+    width:60%;
+    height:63%;
+    opacity:0.8;
+}
+
+.menu-center{/*
+    background-color: yellow;*/
+    width:33%;
+    height:100%;
+}
+
+#imgJourney{
+    text-align: center;
+    height:100%;
+}
+
+.menu-right{/*
+    background-color: blue;*/
+    text-align : right;
+    color : white;
+    width:33%;
+    height:100%;
+}
+
+.test {
+  color: red;
+}
+.inbody{/*
+    margin-bottom:0.2%;
+    margin-left:0.5%;
+    margin-right:0.5%;*/
+    width : 100%;
+    height : calc(100% - 45px);
+    background-color:#f2f2f2;
+    display:flex;
+}
+.kakaomap{
+    /*position: relative는 겹치기 위해서 사용한 CSS*/
+    background-color: #f2f2f2;
+    width : 100%;
+    height : 100%;
+}
+.overlay{
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.inmenu-main{
+    width : 100%;
+    height : 91%;
+    display:flex;
+}
+.inmenu-bottom{
+    width : 100%;
+    height : 9%;
+    background-color: grey;
+    opacity : 0.8;
+}
+#left-button{
+    position: relative;
+    display: block;
+    top: calc(100% - 60px);
+    left: calc(100% - 169px);
+    width: 49px;
+    height: 48px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#bottom-button{  
+     position: relative;
+    display: block;
+    top: calc(100% - 60px);
+    left: calc(100% - 260px);
+    width: 49px;
+    height: 48px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#chat-button{
+    
+    position: relative;
+    display: block;
+    top: calc(100% - 60px);
+    left: calc(100% - 116px);
+    width: 49px;
+    height: 48px;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#chat-show{
+    position: fixed;
+    display: none;
+    background-color: black;
+    top: 4%;
+    bottom: 0%;
+    left: 75%;
+    right: 0%;
+    opacity : 0.8;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#menuOnMap{
+    top: 92%;
+    left: 95%;
+    display: display;
+    z-index: 2;
+    cursor: pointer;
+}
+
+#mapTools{
+    position: relative;
+    display: block;
+    display: display;
+    top: 5px;
+    left: -88px;
+    width: 44px;
+    height: 25px;
+    z-index: 2;
+    cursor: pointer;
+}

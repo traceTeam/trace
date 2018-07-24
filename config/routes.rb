@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :trips
   get '/repositories/:repository_id/trips' => 'trips#index'
   get '/repositories/:repository_id/trips/new' => 'trips#new'
+  
+  get '/maptest' => 'trips#test'
 
 
   devise_for :users, controllers: {

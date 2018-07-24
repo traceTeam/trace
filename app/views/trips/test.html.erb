@@ -1,0 +1,43 @@
+  
+  <div class="inbody" style="height:1000px"  >
+    <div id="leftInfo" style="height:100%; width:0%; background-color : red;"></div>
+    
+    <div id="kakaomap" class="kakaomap">
+      <div style="height:100%; width:100%;">
+        <div id="map" style="display:flex;">
+          <div id="left-button">
+            <button class="menu-top" onclick="showLeftInfo()"></button>
+          </div>
+          <div id="chat-button">
+            <button class="menu-top" onclick="showMessenger()"></button>
+          </div>
+          <div id="mapTools">
+            <div class="dropdown">
+              <div class="dropbtn"><img id="mapMenu" src="<%=image_path("map/arrowDown.png") %>" onclick="showMapMenu()"/></div>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="#hand"><img src="<%=image_path("map/hand.png") %>"/></a>
+                <a href="#marker"><img src="<%=image_path("map/marker.png")%>" onclick="selectOverlay('MARKER')"/></a>
+                <a href="#drawing"><img src="<%=image_path("map/drawing.png")%>" onclick="selectOverlay('POLYLINE')"/></a>
+                <a href="#bus"><img src="<%=image_path("map/bus.png")%>" /></a>
+                <a href="#hotel"><img src="<%=image_path("map/hotel.png")%>"/></a>
+                <a href="#landmark"><img src="<%=image_path("map/landmark.png")%>" /></a>
+              </div>
+            </div>
+          </div>
+          <div id="bottom-button">
+            <button class="menu-top" onclick="showBottomInfo()"></button>
+          </div>
+        </div>
+        <div id="bottomInfo" style="width:100%; height:0%; background-color : red;"></div>
+      </div>
+     
+    </div>
+    <div id="messenger" style="height:100%; width:0%; background-color : red;"></div>
+  </div>
+ 
+ 
+ 
+ 
+	<!--kakaomap-->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8302d30f7ab096112b3c0d0bcaafe010&libraries=services,clusterer,drawing"></script>
+ 	<%= javascript_include_tag 'kakaomap'%>

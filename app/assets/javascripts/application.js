@@ -17,7 +17,7 @@
 //= require bootstrap-select.min
 //= require jquery-scrolltofixed
 //= require owl.carousel.min
-//= require jquery.mmenu.all
+// require jquery.mmenu.all
 //= require packery.pkgd.min
 //= require jquery.vide.min
 //= require scrollbar.min
@@ -27,6 +27,8 @@
 //= require gmap3
 //= require main
 //= require tinymce-jquery
+//= require googlemap
+//= require mapbutton
 
 $(window).on('load', function() {
 	$(".loader").fadeOut(800);

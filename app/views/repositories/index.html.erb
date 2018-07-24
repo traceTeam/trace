@@ -20,7 +20,9 @@
             <% @repositories.each do |repository| %>
               <div class="col-sm-4">
                  <p><%= repository.title %></p>
-                 <a href="/repositories/<%= repository.id %>/trips"><img src="<%= repository.img.url %>" width=300px height=300px/><br></a>
+                 <a href="/repositories/<%= repository.id %>/trips"> 
+                   <%= image_tag(repository.img.url, style: 'width: 300px; height: 300px')%>
+                 </a>
               </div>
             <% end %>
           </div>

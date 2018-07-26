@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :posts
   resources :repositories
   resources :trips
   get '/repositories/:repository_id/trips' => 'trips#index'

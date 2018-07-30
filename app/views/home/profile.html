@@ -1,7 +1,7 @@
 		<!--************************************
 				Inner Banner Start
 		*************************************-->
-		<section class="tg-parallax tg-innerbanner" data-appear-top-offset="600" data-parallax="scroll" data-image-src="images/parallax/bgparallax-06.jpg">
+		<section class="tg-parallax tg-innerbanner" data-appear-top-offset="600" data-parallax="scroll" data-image-src="<%=asset_path 'parallax/bgparallax-06.jpg'%>">
 			<div class="tg-sectionspace tg-haslayout">
 				<div class="container">
 					<div class="row">
@@ -56,7 +56,9 @@
 												<a class="tg-btnedit" href="my-profile.html">Edit Profile</a>
 											</div>
 											<div class="tg-dashboardcontent">
-												<figure><img src="/assets/author/img-03.jpg" alt="image description"></figure>
+												<figure>
+													<%= image_tag(asset_path 'author/img-03.jpg')%>
+												</figure>
 												<div class="tg-content">
 													<ul class="tg-liststyle">
 														<li><span>Name</span></li>
@@ -117,7 +119,9 @@
 									<ul>
 										<li>
 											<figure>
-												<a href="javascript:void(0);"><img src="images/thumbnail/img-01.jpg" alt="image destinations"></a>
+												<a href="javascript:void(0);">
+													<%= image_tag(asset_path 'thumbnail/img-01.jpg')%>
+												</a>
 											</figure>
 											<div class="tg-newcontent">
 												<h4><a href="javascript:void(0);">Bungee Jumping Trip</a></h4>
@@ -129,7 +133,9 @@
 										</li>
 										<li>
 											<figure>
-												<a href="javascript:void(0);"><img src="images/thumbnail/img-02.jpg" alt="image destinations"></a>
+												<a href="javascript:void(0);">
+													<%= image_tag(asset_path 'thumbnail/img-02.jpg')%>
+												</a>
 											</figure>
 											<div class="tg-newcontent">
 												<h4><a href="javascript:void(0);">Trip to White Castle</a></h4>
@@ -169,7 +175,9 @@
 									<form class="tg-formtheme tg-formnewsletter">
 										<fieldset>
 											<input type="email" name="email" class="form-control" placeholder="Your Email">
-											<button type="submit"><img src="images/icons/icon-08.png" alt="image destinations"></button>
+											<button type="submit">
+												<%= image_tag(asset_path 'icons/icon-08.png')%>
+											</button>
 										</fieldset>
 									</form>
 									<span>We respect your privacy</span>
@@ -248,7 +256,7 @@
 	<!--************************************
 			Login Singup Start
 	*************************************-->
-	<div id="tg-loginsingup" class="tg-loginsingup" data-vide-bg="poster: images/singup-img.jpg" data-vide-options="position: 0% 50%">
+	<div id="tg-loginsingup" class="tg-loginsingup" data-vide-bg="poster: <%=asset_path 'singup-img.jpg'%>" data-vide-options="position: 0% 50%">
 		<div class="tg-contentarea tg-themescrollbar">
 			<div class="tg-scrollbar">
 				<button type="button" class="close">x</button>

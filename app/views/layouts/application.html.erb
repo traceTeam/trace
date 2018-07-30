@@ -69,7 +69,7 @@
 							<div class="item tg-trendingtrip">
 								<figure>
 									<a href="javascript:void(0);">
-										<img src="<%=asset_path 'tours/img-05.jpg' %>" alt="image destinations">
+										<%= image_tag(asset_path 'tours/img-05.jpg')%>
 										<div class="tg-hover">
 											<span class="tg-stars"><span></span></span>
 											<span class="tg-tourduration">7 Days</span>
@@ -85,7 +85,7 @@
 							<div class="item tg-trendingtrip">
 								<figure>
 									<a href="javascript:void(0);">
-										<img src="<%=asset_path 'tours/img-06.jpg' %>" alt="image destinations">
+										<%= image_tag(asset_path 'tours/img-06.jpg')%>
 										<div class="tg-hover">
 											<span class="tg-stars"><span></span></span>
 											<span class="tg-tourduration">7 Days</span>
@@ -101,7 +101,7 @@
 							<div class="item tg-trendingtrip">
 								<figure>
 									<a href="javascript:void(0);">
-										<img src="<%=asset_path 'tours/img-07.jpg' %>" alt="image destinations">
+										<%= image_tag(asset_path 'tours/img-07.jpg')%>
 										<div class="tg-hover">
 											<span class="tg-stars"><span></span></span>
 											<span class="tg-tourduration">7 Days</span>
@@ -117,7 +117,7 @@
 							<div class="item tg-trendingtrip">
 								<figure>
 									<a href="javascript:void(0);">
-										<img src="<%=asset_path 'tours/img-08.jpg' %>" alt="image destinations">
+										<%= image_tag(asset_path 'tours/img-08.jpg')%>
 										<div class="tg-hover">
 											<span class="tg-stars"><span></span></span>
 											<span class="tg-tourduration">7 Days</span>
@@ -191,11 +191,11 @@
 						<nav class="tg-infonav">
 							<ul>
 								<li>
-									<i><img src="<%=asset_path 'icons/icon-01.png' %>" alt="image destinations"></i>
+									<i><%= image_tag(asset_path 'icons/icon-01.png')%></i>
 									<span>1-800-321-6543</span>
 								</li>
 								<li>
-									<i><img src="<%=asset_path 'icons/icon-02.png' %>" alt="image destinations"></i>
+									<i><%= image_tag(asset_path 'icons/icon-02.png')%></i>
 									<span>CHOOSE YOUR EXPERIENCE <a href="javascript:void(0);">Discover more</a></span>
 								</li>
 							</ul>
@@ -210,12 +210,12 @@
 							<nav class="tg-cartsearch">
 								<ul>
 									<li>
-										<a href="javascript:void(0);"><img src="<%=asset_path 'icons/icon-03.png' %>" alt="image destinations"></a>
+										<a href="javascript:void(0);"><%= image_tag(asset_path 'icons/icon-03.png')%></a>
 										<div class="tg-cartitems">
 											<div class="tg-cartlistitems">
 												<h3>Shopping Cart</h3>
 												<div class="tg-cartitem">
-													<figure class="tg-itemimg"><img src="<%=asset_path 'products/img-11.jpg' %>" alt="image description"></figure>
+													<figure class="tg-itemimg"><%= image_tag(asset_path 'products/img-11.jpg')%></figure>
 													<div class="tg-contentbox">
 														<div class="tg-producthead">
 															<em>x 2</em>
@@ -225,7 +225,7 @@
 													</div>
 												</div>
 												<div class="tg-cartitem">
-													<figure class="tg-itemimg"><img src="<%=asset_path 'products/img-11.jpg' %>" alt="image description"></figure>
+													<figure class="tg-itemimg"><%= image_tag(asset_path 'products/img-11.jpg')%></figure>
 													<div class="tg-contentbox">
 														<div class="tg-producthead">
 															<em>x 2</em>
@@ -244,13 +244,13 @@
 											</div>
 										</div>
 									</li>
-									<li><a href="#tg-search"><img src="<%=asset_path 'icons/icon-04.png' %>" alt="image destinations"></a></li>
+									<li><a href="#tg-search"><%= image_tag(asset_path 'icons/icon-04.png')%></li>
 								</ul>
 							</nav>
 						</div>
 					</div>
 					<div class="tg-navigationarea tg-headerfixed">
-						<strong class="tg-logo"><a href="https://trace-hhw1990.c9users.io/"><img src="<%=asset_path 'logo.png' %>" alt="company logo here"></a></strong>
+						<strong class="tg-logo"><a href="https://trace-hhw1990.c9users.io/"><%= image_tag(asset_path 'logo.png')%></strong>
 						<div class="tg-socialsignin">
 							<ul class="tg-socialicons">
 								<!--<li><a href="javascript:void(0);"><i class="icon-facebook-logo-outline"></i></a></li>-->
@@ -267,7 +267,7 @@
 								<% else %>
 								<div class="dropdown">  <!--tg-dropdown-->
 									<button class="tg-btndropdown" id="tg-dropdowndashboard" type="button" data-toggle="dropdown">
-										<img src="<%=asset_path 'author/img-01.jpg' %>" alt="image description">
+										<%= image_tag(asset_path 'author/img-01.jpg')%>
 										<span><%=current_user.email%></span>
 										<i class="fa fa-caret-down"></i>
 									</button>
@@ -318,7 +318,7 @@
 													<div class="item tg-trendingtrip">
 														<figure>
 															<a href="javascript:void(0);">
-																<img src="<%=asset_path 'tours/img-05.jpg' %>" alt="image destinations">
+																<%= image_tag(asset_path 'tours/img-05.jpg')%>
 																<div class="tg-hover">
 																	<span class="tg-stars"><span></span></span>
 																	<span class="tg-tourduration">7 Days</span>
@@ -334,7 +334,7 @@
 													<div class="item tg-trendingtrip">
 														<figure>
 															<a href="javascript:void(0);">
-																<img src="<%=asset_path 'tours/img-06.jpg' %>" alt="image destinations">
+																<%= image_tag(asset_path 'tours/img-06.jpg')%>
 																<div class="tg-hover">
 																	<span class="tg-stars"><span></span></span>
 																	<span class="tg-tourduration">7 Days</span>
@@ -350,7 +350,7 @@
 													<div class="item tg-trendingtrip">
 														<figure>
 															<a href="javascript:void(0);">
-																<img src="<%=asset_path 'tours/img-07.jpg' %>" alt="image destinations">
+																<%= image_tag(asset_path 'tours/img-07.jpg')%>
 																<div class="tg-hover">
 																	<span class="tg-stars"><span></span></span>
 																	<span class="tg-tourduration">7 Days</span>
@@ -366,7 +366,7 @@
 													<div class="item tg-trendingtrip">
 														<figure>
 															<a href="javascript:void(0);">
-																<img src="<%=asset_path 'tours/img-08.jpg' %>" alt="image destinations">
+																<%= image_tag(asset_path 'tours/img-08.jpg')%>
 																<div class="tg-hover">
 																	<span class="tg-stars"><span></span></span>
 																	<span class="tg-tourduration">7 Days</span>

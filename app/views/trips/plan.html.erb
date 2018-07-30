@@ -31,14 +31,21 @@
           </div>
           <div id="mapTools">
             <div class="dropdown">
-              <div class="dropbtn"><img id="mapMenu" src="<%=image_path("map/arrowDown.png") %>" onclick="showMapMenu()"/></div>
+              <!--<div class="dropbtn"><img id="mapMenu" src="<%#=image_path("map/arrowDown.png") %>" onclick="showMapMenu()"/></div>-->
+              <div class="dropbtn"><a onclick="showMapMenu()"><%= image_tag(asset_path 'map/arrowDown.png')%></a></div>
               <div id="myDropdown" class="dropdown-content">
-                <a href="#hand"><img src="<%=image_path("map/hand.png") %>"/></a>
-                <a href="#marker"><img src="<%=image_path("map/marker.png")%>" onclick="selectOverlay('MARKER')"/></a>
-                <a href="#drawing"><img src="<%=image_path("map/drawing.png")%>" onclick="selectOverlay('POLYLINE')"/></a>
-                <a href="#bus"><img src="<%=image_path("map/bus.png")%>" /></a>
-                <a href="#hotel"><img src="<%=image_path("map/hotel.png")%>"/></a>
-                <a href="#landmark"><img src="<%=image_path("map/landmark.png")%>" /></a>
+                <!--<a href="#hand"><img src="<%#=image_path("map/hand.png") %>"/></a>-->
+                <a href="#hand"><%= image_tag(asset_path 'map/hand.png')%></a>
+                <!--<a href="#marker"><img src="<%#=image_path("map/marker.png")%>" onclick="selectOverlay('MARKER')"/></a>-->
+                <a href="#marker" onclick="selectOverlay('MARKER')"><%= image_tag(asset_path 'map/marker.png')%></a>
+                <!--<a href="#drawing"><img src="<%#=image_path("map/drawing.png")%>" onclick="selectOverlay('POLYLINE')"/></a>-->
+                <a href="#drawing" onclick="selectOverlay('POLYLINE')"/><%= image_tag(asset_path 'map/drawing.png')%></a>
+                <!--<a href="#bus"><img src="<%#=image_path("map/bus.png")%>" /></a>-->
+                <a href="#bus"><%= image_tag(asset_path 'map/bus.png')%></a>
+                <!--<a href="#hotel"><img src="<%#=image_path("map/hotel.png")%>"/></a>-->
+                <a href="#hotel"><%= image_tag(asset_path 'map/hotel.png')%></a>
+                <!--<a href="#landmark"><img src="<%#=image_path("map/landmark.png")%>" /></a>-->
+                <a href="#landmark"><%= image_tag(asset_path 'map/landmark.png')%></a>
               </div>
             </div>
           </div>

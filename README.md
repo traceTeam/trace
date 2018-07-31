@@ -18,7 +18,8 @@ Things you may want to cover:
 Please feel free to use a different markup language if you do not plan to run
 
 
-
+Rails 4.2.10
+ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
 
 
 ### 1. 서버 사전 작업

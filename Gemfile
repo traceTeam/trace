@@ -6,6 +6,9 @@ gem 'devise'
 gem 'rails_db'
 gem "simple_calendar", "~> 2.0"
 
+#환경변수
+gem 'figaro'
+
 
 #게시판
 gem 'tinymce-rails'

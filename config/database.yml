@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: trace_production
-  username: trace
+  username: root
   password: <%= ENV['TRACE_DATABASE_PASSWORD'] %>

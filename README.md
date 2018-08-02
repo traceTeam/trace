@@ -22,6 +22,24 @@ Rails 4.2.10
 ruby 2.3.4p301 (2017-03-30 revision 58214) [x86_64-linux]
 
 
+### 0. 배포할 때 변경 작업
+
+`RAILS_ENV=production rake assets:precompile ` 할 시 avort뜸, 이를 해결하기 위해 아래 ㄱㄱ
+
+- `vi app/views/layouts/application.html.erb`
+  <%= stylesheet_link_tag    "#{params[:controller]}", media: 'all' %>  <-- 주석처리(line 6)
+
+- `vi config/initializers/assets.rb`
+  Rails.application.config.assets.precompile += %w( *.css )   <-- 아래와 같이 변경(line 5)
+
+  ```ruby
+  Dir[Rails.root.join( "*.css")].each do |file|
+  Rails.application.config.assets.precompile << file
+  end
+  ```
+ => 사실 위에 2개 주석만해도 됨,  그런데 css분기된거 precompile 할 때 ,실패 해결방법을 알고 있을려고 남겨둠
+
+
 ### 1. 서버 사전 작업
 
 - mysql-server 설치
